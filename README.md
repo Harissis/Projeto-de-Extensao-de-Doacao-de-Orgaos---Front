@@ -18,12 +18,16 @@ bash
 Copiar código
 git clone https://github.com/Harissis/Projeto-de-Extensao-de-Doacao-de-Orgaos---Front
 cd Quero-Doar-frontend
+
+
 2. Instalar Dependências (Se necessário)
 Se você estiver usando ferramentas como Webpack, Babel ou outras dependências para compilar seu código JavaScript e CSS, execute:
 
 bash
 Copiar código
 npm install
+
+
 3. Rodar o Servidor de Desenvolvimento
 Se estiver usando ferramentas como Webpack ou Vue.js para desenvolvimento, execute o comando abaixo para iniciar o servidor de desenvolvimento:
 
