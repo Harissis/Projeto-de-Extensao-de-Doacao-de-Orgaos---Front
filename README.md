@@ -16,7 +16,7 @@ Clone o repositório do front-end para sua máquina local:
 
 bash
 Copiar código
-git clone [https://github.com/usuario/Quero-Doar-frontend.git](https://github.com/Harissis/Projeto-de-Extensao-de-Doacao-de-Orgaos---Front)
+git clone https://github.com/Harissis/Projeto-de-Extensao-de-Doacao-de-Orgaos---Front
 cd Quero-Doar-frontend
 2. Instalar Dependências (Se necessário)
 Se você estiver usando ferramentas como Webpack, Babel ou outras dependências para compilar seu código JavaScript e CSS, execute:
