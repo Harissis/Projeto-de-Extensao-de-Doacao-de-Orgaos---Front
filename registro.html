@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário | Quero Doar!</title>
+    <link rel="stylesheet" href="assets/style1.css">
+    <link rel="icon" href="assets/images/icone.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
+          crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <img class="image-left" src="assets/images/imagemlogin.png" alt="Imagem à esquerda">
+        </div>
+        <div class="right-side">
+            <form class="form" id="registerForm">
+                <div class="card">
+                    <div class="card-top">
+                        <a href="index.html">
+                            <img class="imglogin" src="assets/images/logocolorida.png" alt="Logo Colorida">
+                        </a>
+                        <h2 class="title">CADASTRO</h2>
+                    </div>
+
+                    <div class="card-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" name="name" id="name" class="form-control" required>
+                    </div>
+
+                    <div class="card-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="name@example.com" required>
+                    </div>
+
+                    <div class="card-group">
+                        <label for="password">Senha</label>
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Digite sua senha" required>
+                    </div>
+
+                    <div class="card-group">
+                        <label for="password_confirmation">Confirme a Senha</label>
+                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required>
+                    </div>
+
+                    <div class="card-group">
+                        <label>
+                            <input type="checkbox" required> Concordo com os <a href="#">Termos de Serviço</a> e <a href="#">Política de Privacidade</a>
+                        </label>
+                    </div>
+
+                    <div class="card-group btn">
+                        <button type="submit" class="btn btn-primary">CADASTRAR</button>
+                    </div>
+
+                    <div class="card-group">
+                        <p class="register-link">Já tem uma conta? <a href="login.html" class="register-link">Faça Login</a></p>
+                    </div>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+
+    <div id="mensagem"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+            crossorigin="anonymous">
+    </script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const user = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                password_confirmation: document.getElementById('password_confirmation').value
+            };
+
+            // Validação da senha com regex
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!passwordRegex.test(user.password)) {
+                document.getElementById('mensagem').innerHTML = '<p class="alert alert-danger">A senha deve ter pelo menos 8 caracteres, incluindo uma letra maiúscula, uma letra minúscula, um número e um caractere especial.</p>';
+                return;
+            }
+
+            // Verifica se as senhas coincidem
+            if (user.password !== user.password_confirmation) {
+                document.getElementById('mensagem').innerHTML = '<p class="alert alert-danger">As senhas não coincidem. Tente novamente.</p>';
+                return;
+            }
+
+            // Envia os dados para a API
+            fetch('http://localhost:8000/api/cadastrar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 200) {
+                    document.getElementById('mensagem').innerHTML = '<p class="alert alert-success">Usuário registrado com sucesso!</p>';
+                    document.getElementById('registerForm').reset(); // Limpa o formulário
+                } else {
+                    document.getElementById('mensagem').innerHTML = '<p class="alert alert-danger">Erro no cadastro: ' + data.message + '</p>';
+                }
+            })
+            .catch(error => {
+                document.getElementById('mensagem').innerHTML = '<p class="alert alert-danger">Erro ao realizar o cadastro. Tente novamente.</p>';
+            });
+        });
+
+        // Função para retornar à página inicial
+        document.getElementById('backBtn').addEventListener('click', function() {
+            window.location.href = 'index.html';  // Redireciona para a página inicial
+        });
+    </script>
+</body>
+</html>
