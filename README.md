@@ -43,11 +43,14 @@ Isso compilará e iniciará o servidor em http://localhost:8080 ou em outra port
 O front-end pode ser acessado diretamente através de um navegador, abrindo o arquivo index.html ou, caso esteja rodando com ferramentas como Webpack, acessando o servidor local.
 
 Estrutura de Diretórios
+
 /assets: Contém arquivos estáticos, como imagens e fontes.
 /css: Contém arquivos de estilo CSS.
 /js: Contém arquivos JavaScript que interagem com a API e controlam a dinâmica da página.
 /index.html: Página principal do front-end.
+
 Principais Funcionalidades no Front-end
+
 Cadastro de Doadores: Formulários para que os usuários se cadastrem como doadores, fornecendo informações como nome, endereço, tipo de órgão a ser doado, entre outros.
 Login de Usuários: Tela de login para que usuários (doadores ou beneficiários) possam acessar suas contas e realizar ações como doação ou busca de pontos de coleta.
 Formulário de Doação: Formulário que permite ao doador fornecer informações sobre os órgãos que ele deseja doar, incluindo dados de contato e disponibilidade.
