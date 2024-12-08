@@ -1,5 +1,7 @@
 Documentação do Front-end (HTML, CSS, JS)
+
 Quero Doar! - Front-end (HTML, CSS, JavaScript)
+
 Quero Doar! é uma plataforma de doação de órgãos que conecta doadores, pontos de coleta e beneficiários. Esta documentação descreve o processo de configuração e execução do front-end da aplicação, que é desenvolvido com HTML, CSS e JavaScript.
 
 Tecnologias Utilizadas
@@ -11,6 +13,7 @@ Pré-requisitos
 Navegador Web para acessar o aplicativo.
 Node.js e NPM para compilar os arquivos front-end (caso utilize ferramentas como Webpack ou Vue.js).
 Instalação e Configuração
+
 1. Clonar o Repositório
 Clone o repositório do front-end para sua máquina local:
 
