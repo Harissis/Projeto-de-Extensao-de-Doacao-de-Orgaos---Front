@@ -1,4 +1,11 @@
 Documentação do Front-end (HTML, CSS, JS)
+ Integrantes do Projeto
+
+1. Rafael Alves Harissis
+2. Luiz Felipe Santos Freitas
+3. Jamilly De Souza Oliveira
+4. Fabricio Pereira da Costa Filho
+
 
 Quero Doar! - Front-end (HTML, CSS, JavaScript)
 
